@@ -36,7 +36,7 @@ function askQuestion() {
   // console.log(question);
   // candidateAnswer = input.question("Enter Answer Here: ");
   for (let i = 0; i < questions.length; i++){
-    console.log(questions[i]);
+    console.log("\n"+questions[i]);
     candidateAnswers.push(input.question("Enter Answer Here: "));
   }
 
@@ -50,16 +50,29 @@ function gradeQuiz(candidateAnswers) {
   // } else {
   //   console.log("The answer submitted was incorrect.");
   // }
+  let correct = 0;
+  let incorrect = 0;
   for (let i = 0; i < questions.length; i++){
-    if (candidateAnswers[i] === correctAnswers[i]){
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
       console.log(`\nYour answer for question ${i}: ${candidateAnswers[i]}\nThe correct answer for question ${i} is: ${correctAnswers[i]} `);
+      correct += 1;
+      console.log(correct);
     } else {
       console.log(`\nYour answer for question ${i}: ${candidateAnswers[i]}\nThe correct answer for question ${i} is: ${correctAnswers[i]} `);
+      
     }
   }
 
-
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  
+  let percent = ((correct/5) * 100);
+  if (percent >= 80){
+    grade = percent;
+    console.log(`\nCongrats! You passed the Quiz with a ${percent}%`);
+  } else {
+    grade = percent;
+    console.log(`\nIt looks like you failed the Quiz with a ${percent}%. Keep Studying!`)
+  }
 
   console.log(questions);
   console.log();
