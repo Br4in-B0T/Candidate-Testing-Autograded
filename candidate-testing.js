@@ -54,11 +54,11 @@ function gradeQuiz(candidateAnswers) {
   let incorrect = 0;
   for (let i = 0; i < questions.length; i++){
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
-      console.log(`\nYour answer for question ${i}: ${candidateAnswers[i]}\nThe correct answer for question ${i} is: ${correctAnswers[i]} `);
+      console.log(`\nYour answer for question ${i+1}: ${candidateAnswers[i]}\nThe correct answer for question ${i+1} is: ${correctAnswers[i]} `);
       correct += 1;
       console.log(correct);
     } else {
-      console.log(`\nYour answer for question ${i}: ${candidateAnswers[i]}\nThe correct answer for question ${i} is: ${correctAnswers[i]} `);
+      console.log(`\nYour answer for question ${i+1}: ${candidateAnswers[i]}\nThe correct answer for question ${i+1} is: ${correctAnswers[i]} `);
       
     }
   }
