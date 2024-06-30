@@ -51,31 +51,26 @@ function gradeQuiz(candidateAnswers) {
   //   console.log("The answer submitted was incorrect.");
   // }
   let correct = 0;
-  let incorrect = 0;
+  console.log(`\nCandidate Name: ${candidateName}`)
   for (let i = 0; i < questions.length; i++){
+    console.log(`\n${i+1}) ${questions[i]}`);
+    console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`);
     if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()){
-      console.log(`\nYour answer for question ${i+1}: ${candidateAnswers[i]}\nThe correct answer for question ${i+1} is: ${correctAnswers[i]} `);
-      correct += 1;
-      console.log(correct);
-    } else {
-      console.log(`\nYour answer for question ${i+1}: ${candidateAnswers[i]}\nThe correct answer for question ${i+1} is: ${correctAnswers[i]} `);
-      
+      correct++;
     }
   }
 
   let grade;  //TODO 3.2 use this variable to calculate the candidates score.
   
-  let percent = ((correct/5) * 100);
-  if (percent >= 80){
-    grade = percent;
-    console.log(`\nCongrats! You passed the Quiz with a ${percent}%`);
+  let percent = ((correct/questions.length) * 100);
+  console.log(`\n>>> Overall Grade: ${percent}% (${correct} of ${questions.length} responses correct) <<<`);
+  grade = percent;
+  if (grade >= 80){
+    console.log(">>> Status: PASSED <<<")
   } else {
-    grade = percent;
-    console.log(`\nIt looks like you failed the Quiz with a ${percent}%. Keep Studying!`)
+    console.log(">>> Status: FAILED <<<")
   }
 
-  console.log(questions);
-  console.log();
   return grade;
 }
 
